@@ -1,0 +1,408 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+    
+/*Navbar Section*/
+
+/* Default font size for large screens */
+.navbar-brand {
+    font-family: 'Parisienne', cursive;
+    font-size: 36px !important; /* Increased font size */
+    font-weight: bold;
+    color: #800000 !important; /* Maroon */
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .navbar-brand {
+      font-size: 28px !important; /* Adjust font size for smaller screens */
+    }
+  }
+  
+  /* Animation for navbar */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Animation for navbar links */
+  .navbar-nav {
+    animation: slideIn 1s ease-out;
+  }
+  
+  .navbar-nav .nav-link {
+    font-weight: bold;
+    color: #14213d; /* Dark Blue */
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #fca311; /* Orange */
+  }
+  
+  .btn-login-register {
+    background-color: #fca311; /* Orange */
+    border-color: #fca311; /* Orange */
+    font-weight: bold;
+    color: #fff; /* White */
+    transition: all 0.3s ease;
+  }
+  
+  .btn-login-register:hover {
+    background-color: #ffb703; /* Light Orange */
+    border-color: #ffb703; /* Light Orange */
+    color: #fff; /* White */
+  }
+  
+/*Home Section*/
+
+.home-section {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    background-image: url('{{ url_for('static', filename='images/image_bg.png') }}'); /* Path to your eye image */
+    background-size: cover;
+    background-position: center;
+   ;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(173, 216, 230, 0.2); /* Lightest possible shade of blue with some transparency */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+
+  .text {
+    margin-right: 20vw;
+  }
+  
+
+
+  .content {
+    text-align: center;
+    color: red; /* Text color */
+    padding-left: 10vw;
+    font-size: 50px;
+    font-family: "Trirong", serif;
+    animation: fadeInUp 5s ease forwards;
+    display: inline-flex;
+    align-items: center; /* Align items vertically in center */
+    flex-wrap: wrap;
+  }
+  
+  .content h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .quote {
+    font-size: 18px;
+    margin-top: 10px;
+    text-align: center;
+    color: black;
+    font-weight: 700;
+  }
+  /* Style for the file input button */
+  .file-upload-button {
+    display: inline-block;
+    background-color: #007bff; /* Same as predict button */
+    color: #fff; /* Same as predict button */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px; /* Adjust margin as needed */
+  }
+
+  /* Style for the parent container */
+.result-container {
+    display: none; /* Initially hide the container */
+    margin-right:  40px;
+    margin-left: 5vw;
+    padding: 20px; /* Padding inside the container */
+    border: 2px solid #333; /* Dark border */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #f0f0f0; /* Light gray background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  }
+  
+  /* Style for image preview container */
+  .image-preview, .prediction-result {
+    text-align: center;
+    margin-bottom: 20px; /* Adjust margin as needed between the two containers */
+  }
+  
+ 
+  
+  /* Responsive adjustments */
+  @media only screen and (max-width: 768px) {
+    .result-container {
+      padding: 15px; /* Adjust padding for smaller screens */
+    }
+  }
+  
+  @media only screen and (max-width: 576px) {
+    .result-container {
+      margin-top: 10px; /* Adjust margin for smaller screens */
+      padding: 10px; /* Adjust padding for smaller screens */
+    }
+  }
+  
+  
+  
+  /* Font color */
+  .result-container, .image-preview, .prediction-result {
+    color: black; /* Black font color */
+    font-size: 16px;
+  }
+  
+  .predict-button {
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px; /* Adjust margin as needed */
+  }
+  
+  .predict-button:hover {
+    background-color: #0056b3; /* Button background color on hover */
+  }
+  
+/*Blog Section*/
+
+.eyecaredr {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Align items vertically */
+  border: black 2px solid;
+  border-radius: 10px;
+  padding: 1vw;
+  margin: 4vw;
+  max-width: 75vw;
+}
+.eyecaredr2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Align items vertically */
+  border: black 2px solid;
+  border-radius: 10px;
+  padding: 1vw;
+  margin: 4vw;
+  margin-left: 25vw;
+  max-width: 75vw;
+}
+
+.img img {
+  max-height: 250px; /* Set maximum height for the image */
+}
+
+.blogtext {
+  margin-left: 20px; /* Adjust margin between image and text */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .eyecaredr,
+  .eyecaredr2 {
+    flex-direction: column; /* Change to column layout for smaller screens */
+    align-items: center; /* Align items to the center */
+    justify-content: space-between; /* Align items with space between them */
+    margin: 2vw; /* Adjust margin for smaller screens */
+    max-width: 90vw; /* Adjust maximum width for smaller screens */
+  }
+
+  .eyecaredr .img img,
+  .eyecaredr2 .img img {
+    max-height: 200px; /* Adjust image height for smaller screens */
+    margin-bottom: 10px; /* Add space between image and text */
+  }
+
+  .eyecaredr .blogtext,
+  .eyecaredr2 .blogtext {
+    margin-left: 0; /* Remove left margin for text */
+    text-align: center; /* Center align text */
+  }
+}
+
+
+
+/* Style for FAQ*/
+
+.faq-section {
+    text-align: center;
+    margin: 10px;
+  }
+  
+  .faq-heading {
+    font-size: 24px;
+    color: #800000;
+    margin-bottom: 20px;
+  }
+  
+  .faq-item {
+    margin-bottom: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    background-color: rgb(255, 218, 165); /* Add background color */
+    padding: 10px; /* Add padding */
+    border-radius: 10px; /* Add border radius */
+  }
+  
+  .question {
+    cursor: pointer;
+    color: #14213d;
+    font-weight: bold;
+    padding: 10px 30px 10px 20px; /* Adjust padding */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Align items with space between */
+    align-items: center; /* Center vertically */
+  }
+  
+  .answer {
+    display: none;
+    color: #333;
+    padding: 10px 20px; /* Adjust padding */
+    text-align: left; /* Align text to the left */
+  }
+  
+  .arrow {
+    margin-left: 5px;
+  }
+  
+  .show-answer {
+    display: block;
+  }
+  
+
+/*Style for Team*/
+
+/* Animation for the team member images */
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Team Members Section */
+  .team-members {
+    padding: 50px 0; /* Adjust padding as needed */
+    text-align: center; /* Center aligning the content */
+    background-color: #f5f5f5; /* Change background color of team member section */
+    animation: fadeInUp 1s ease forwards; /* Add animation */
+  }
+  
+  .member {
+    position: relative;
+    border-radius: 50%;
+    margin-bottom: 30px; /* Adjust margin as needed */
+    animation: fadeInUp 1s ease forwards; /* Add animation */
+  }
+  
+  .member img {
+    width: 200px; /* Adjust image size as needed */
+    height: 200px;
+    border-radius: 50%;
+    transition: transform 1s ease-in-out, filter 1s ease; /* Add animation transition */
+    filter: grayscale(100%); /* Convert image to black and white */
+    border: solid black;
+  }
+  
+  .member:hover img {
+    transform: scale(1.1); /* Add hover effect */
+    filter: grayscale(0%); /* Convert image to color */
+  }
+  
+  .team-member-name {
+    padding-top: 1vw;
+  }
+  
+  /* Guide and Sponsor Section */
+.support .guide,
+.support .sponsor {
+  display: inline-block;
+  vertical-align: top; /* Align the divs to the top */
+  margin-right: 20px; /* Adjust margin between the divs */
+  justify-content: space-between;
+}
+
+  .guide-sponsor {
+    padding: 50px 0; /* Adjust padding as needed */
+    text-align: center; /* Center aligning the content */
+  }
+  
+  .guide img {
+    width: 200px; /* Adjust image size as needed */
+    height: 200px;
+    border-radius: 50%;
+    transition: transform 1s ease-in-out, filter 1s ease; /* Add animation transition */
+    border: solid black;
+
+  }
+  .guide:hover img {
+    transform: scale(1.1); /* Add hover effect */
+  }
+  
+  
+  .sponsor img {
+    width: 200px; /* Adjust image size as needed */
+    height: 200px;
+    border-radius: 50%;
+    transition: transform 1s ease-in-out, filter 1s ease; /* Add animation transition */
+    border: solid black;
+
+  }
+  .sponsor:hover img {
+    transform: scale(1.1); /* Add hover effect */
+
+  }
+  /* Styling for the heading */
+  .team-members h2 {
+    color: #ff0000; /* Red text color */
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  
+ 
+  .mainhead{
+    font-size: 40px;
+    margin: 1vw;
+    font-family: "Sofia", sans-serif;
+    color: red;
+    text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000; 
+  }
