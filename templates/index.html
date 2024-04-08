@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diabetic Retinopathy Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Fonts - Parisienne -->
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap|Trirong" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <div class="container">
+            <h2 class="navbar-brand" href="#">Diabetic Retinopathy</h2>
+            <!-- Toggle Button for Mobile -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Team">Our Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#FAQ">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-login-register">Login / Register</button>
+                    </li>
+                </ul>
+            </div>
+         </div>
+    </nav>
+
+    <!-- Home Section-->
+
+    <section id="Home" class="home-section" style="background-image: url('{{ url_for('static', filename='images/image_bg.png') }}'); height: 80vh;">
+
+        <div class="overlay">
+            <div class="content">
+                <div class="text" >
+                    <h1 class="font-effect-shadow-multiple">Diabetic Retinopathy</h1>
+                    <p class="quote">Where the struggle of blood sugar <br> finds its canvas in the eyes</p>
+                    <label for="fileInput" class="file-upload-button">Upload Image</label>
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;">        
+                    <button class="predict-button" id="predict-button">Predict DR Stage</button>
+                </div>
+                <div id="resultContainer" class="result-container" >
+                    <div id="imagePreview" class="image-preview">
+                        <!-- Image preview content goes here -->
+                    </div>
+                    <div id="predictionResult" class="prediction-result">
+                        <!-- Prediction result content goes here -->
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="Blog" class="Blog">
+        <h2 class="mainhead text-center">Read More</h2>
+        <div class="eyecaredr">
+            <div class="img">
+                <img src="{{ url_for('static', filename='images/blog1.jpeg') }}" alt="" height="200vw">
+            </div>
+            <div class="blogtext">
+                <h3 class="blogheading">Preventing Diabetic Retinopathy</h3>
+                <p class="data">Diabetic retinopathy (DR) is a serious eye condition that affects individuals with diabetes, 
+                    potentially leading to vision loss if left untreated. Understanding the importance of early 
+                    detection and proactive eye care is essential for preserving vision and maintaining overall 
+                    health.
+                    <br>
+                    Diabetic retinopathy occurs when high blood sugar levels damage the blood vessels in your sretina, 
+                    the light-sensitive tissue at the back of your eye. This damage can lead to:
+
+                </p>
+                <button class="readmore"><a href="/static/pdfs/blog1.pdf" target="_blank">Read More</a></button>
+            </div>
+        </div>
+        <div class="eyecaredr2">
+            <div class="img">
+                <img src="{{ url_for('static', filename='images/blog2.jpeg') }}" alt="" height="200vw">
+            </div>
+            <div class="blogtext">
+                <h3 class="blogheading">Do you Know???</h3>
+                <p class="data">"Ever heard of a superhero sidekick for your eyes? It's called good blood sugar control, 
+                    and it's crucial for preventing diabetic retinopathy!"
+                    <br>
+                    "Did you know that blurry vision isn't always a sign you need glasses? It could be a clue 
+                    to diabetic retinopathy!"
+                    <br>
+                    "Your retina is like a high-tech camera capturing the world around you. DR can damage 
+                    this camera, affecting your vision."
+                </p>
+                <button class="readmore"><a href="/static/pdfs/blog2.pdf" target="_blank">Read More</a></button>
+            </div>
+        </div>
+        <div class="eyecaredr">
+            <div class="img">
+                <img src="{{ url_for('static', filename='images/blog3.jpg') }}" alt="" height="200vw">
+            </div>
+            <div class="blogtext">
+                <h3 class="blogheading">Quick Tips!!!</h3>
+                <p class="data">Did you know that diabetic retinopathy is the leading cause of blindness in working-age 
+                    adults.
+                    <br>
+                    Diabetes can affect more than just your blood sugar.
+                    <br>
+                    Diabetic retinopathy, or DR, is a complication that can damage the retina, the light sensitive layer at the back of your eye. Over time, uncontrolled blood sugar can weaken 
+                    the blood vessels in your retina, leading to leakage, bleeding, and even abnormal new 
+                    blood vessel growth.
+                    </p>
+                <button class="readmore"><a href="/static/pdfs/blog3.pdf" target="_blank">Read More</a></button>
+            </div>
+        </div>
+        <div class="eyecaredr2">
+            <div class="img">
+                <img src="{{ url_for('static', filename='images/blog4.jpg') }}" alt="" height="200vw">
+            </div>
+            <div class="blogtext">
+                <h3 class="blogheading">Docotr's Key</h3>
+                <p class="data">Prevention is Key:
+                    <br>
+                    • Maintaining good blood sugar control is the cornerstone of preventing DR. This 
+                    means working closely with your healthcare team to manage your diabetes 
+                    effectively.
+                    <br>
+                    • A key tool is the HbA1c test, which measures your average blood sugar control over 
+                    the past 2-3 months. Your doctor will recommend a target HbA1c level based on your 
+                    individual health factors.
+                    </p>
+                <button class="readmore"><a href="/static/pdfs/blog4.pdf" target="_blank">Read More</a></button>
+            </div>
+        </div>
+    </section>
+
+     
+
+    <!-- Our Team Section -->
+    
+    <section id="Team" class="team-members">
+        <div class="container">
+            <h2 class="text-center mainhead " style="font-family: 'Sofia', 'sans-serif'";>Our Creative Team</h2>
+            <div class="row justify-content-center">
+                <!-- Team Lead -->
+                <div class="col-md-3 text-center">
+                    <div class="member">
+                        <img src="{{ url_for('static', filename='images/riya.jpg') }}" alt="Riya Thopate" class="img-fluid rounded-circle">
+                        <h3 class="team-member-name">Miss. Riya Thopate</h3>
+                        <p class="team-member-role">Team Lead</p>
+                    </div>
+                </div>
+                <!-- Team Member 1 -->
+                <div class="col-md-3 text-center">
+                    <div class="member">
+                        <img src="{{ url_for('static', filename='images/prajakta.jpeg') }}" alt="Prajakta Nile" class="img-fluid rounded-circle">
+                        <h3 class="team-member-name">Miss. Prajakta Nile</h3>
+                        <p class="team-member-role">Team Member</p>
+                    </div>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="col-md-3 text-center">
+                    <div class="member">
+                       <img src="{{ url_for('static', filename='images/mohit.jpeg') }}" alt="Mohit Daga" class="img-fluid rounded-circle">
+                       <h3 class="team-member-name">Mr. Mohit Daga</h3>
+                       <p class="team-member-role">Team Member</p>
+                    </div>
+                </div>
+                <!-- Team Member 3 -->
+                <div class="col-md-3 text-center">
+                    <div class="member">
+                        <img src="{{ url_for('static', filename='images/malhar.png') }}" alt="Malhar Mohite" class="img-fluid rounded-circle">
+                        <h3 class="team-member-name">Mr. Malhar Mohite</h3>
+                        <p class="team-member-role">Team Member</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide and Sponsor Section -->
+
+    <section class="guide-sponsor">
+        <div class="container text-center">
+            <h2 class="mb-4 mainhead">Our Support</h2>
+            <!-- Guide -->
+            <div class="support">
+            <div class="guide">
+                <img src="{{ url_for('static', filename='images/guide_photo.jpeg') }}" alt="Guide Photo" class="img-fluid rounded-circle">
+                <h3 class="mb-2">Mrs. Rasika Wattamwar</h3>
+                <p class="mb-5">Guide</p>
+            </div>
+            <!-- Sponsor -->
+            <div class="sponsor">
+                <img src="{{ url_for('static', filename='images/sponsor.png') }}" alt="Sponsor Logo" class="img-fluid rounded-circle">
+                <h3>Shri Shahu Charitable Trust</h3>
+                <p>Sponsor</p>
+            </div>
+        </div>
+        </div>
+    </section>
+   
+     <!--FAQ-->
+
+     <section id="FAQ" class="faq-section">
+        <h2 class="faq-heading mainhead">Frequently Asked Questions</h2>
+        <div class="faq-items">
+          <div class="faq-item">
+              <div class="question">1. What is diabetic retinopathy, and why is it important to detect it early?<span class="arrow">▼</span></div>
+              <div class="answer">Diabetic retinopathy is a diabetes complication that affects the eyes, leading to vision impairment or blindness. Early detection is crucial because it allows for timely intervention to prevent vision loss.</div>
+          </div>
+          <div class="faq-item">
+              <div class="question">2. How does diabetic retinopathy detection differ from a regular eye examination?<span class="arrow">▼</span></div>
+              <div class="answer">Diabetic retinopathy detection involves specialized tests such as dilated eye exams and imaging techniques like optical coherence tomography (OCT) to assess the retina's health and detect signs of diabetic retinopathy.</div>
+          </div>
+          <div class="faq-item">
+              <div class="question">3. Who should undergo diabetic retinopathy detection screening?<span class="arrow">▼</span></div>
+              <div class="answer">Individuals with diabetes, especially those with type 1 or type 2 diabetes, should undergo regular diabetic retinopathy screening as recommended by their healthcare provider. Screening frequency may vary based on the type and duration of diabetes and overall eye health.</div>
+          </div>
+          <!-- Repeat the structure for the remaining questions -->
+          <div class="faq-item">
+              <div class="question">4. What are the early signs and symptoms of diabetic retinopathy?<span class="arrow">▼</span></div>
+              <div class="answer">In the early stages, diabetic retinopathy may not cause noticeable symptoms. However, signs such as blurred vision, floaters, dark spots in vision, and difficulty seeing at night may develop as the condition progresses.</div>
+          </div>
+          <div class="faq-item">
+              <div class="question">5. What are the risks and complications associated with undiagnosed diabetic retinopathy?<span class="arrow">▼</span></div>
+              <div class="answer">Undiagnosed or untreated diabetic retinopathy can lead to severe vision impairment or blindness. It may also increase the risk of other eye complications such as macular edema, retinal detachment, and glaucoma.</div>
+          </div>
+          <div class="faq-item">
+              <div class="question">6. What are the treatment options available for diabetic retinopathy?<span class="arrow">▼</span></div>
+              <div class="answer">Treatment options for diabetic retinopathy may include laser therapy, intravitreal injections of anti-VEGF drugs, vitrectomy surgery, and management of underlying diabetes and other systemic conditions.</div>
+          </div>
+          <div class="faq-item">
+              <div class="question">7. What is diabetic retinopathy detection using CNN?<span class="arrow">▼</span></div>
+              <div class="answer">Diabetic retinopathy detection using CNN (Convolutional Neural Network) is a sophisticated technology that utilizes deep learning algorithms to analyze retinal images and identify signs of diabetic retinopathy automatically.</div>
+          </div>
+          <div class="faq-item">
+              <div class="question">8. How does diabetic retinopathy detection using CNN work?<span class="arrow">▼</span></div>
+              <div class="answer">CNN-based diabetic retinopathy detection involves training a neural network using large datasets of retinal images labeled with diabetic retinopathy severity levels. The CNN learns to recognize patterns and features indicative of diabetic retinopathy during this training process.</div>
+          </div>
+          <div class="faq-item">
+              <div class="question">9. What are the benefits of using CNN for diabetic retinopathy detection?<span class="arrow">▼</span></div>
+              <div class="answer">CNN offers several advantages, including high accuracy in detecting diabetic retinopathy, scalability for processing large volumes of retinal images efficiently, and the potential for automation, which can streamline screening processes and improve patient outcomes.</div>
+          </div>
+          <div class="faq-item">
+              <div class="question">10. Who can benefit from diabetic retinopathy detection using CNN?<span class="arrow">▼</span></div>
+              <div class="answer">Patients with diabetes, especially those at risk of diabetic retinopathy, can benefit from CNN-based detection methods. Healthcare providers, clinics, and institutions involved in diabetic eye care can also leverage this technology to enhance screening programs and early detection efforts.</div>
+          </div>
+          <div class="faq-item">
+              <div class="question">11. Is diabetic retinopathy detection using CNN safe and reliable?<span class="arrow">▼</span></div>
+              <div class="answer">Yes, diabetic retinopathy detection using CNN has been extensively studied and validated in clinical research settings. It has demonstrated high accuracy rates comparable to or even surpassing those of human experts in identifying diabetic retinopathy and its severity levels.</div>
+          </div>
+          <div class="faq-item">
+              <div class="question">12. How is diabetic retinopathy detection using CNN integrated into our website?<span class="arrow">▼</span></div>
+              <div class="answer">Our website utilizes state-of-the-art CNN algorithms to analyze retinal images uploaded by users. The CNN processes the images, detects any signs of diabetic retinopathy, and provides instant feedback or recommendations based on the analysis results.</div>
+          </div>
+          <div class="faq-item">
+              <div class="question">13. Can I trust the results of diabetic retinopathy detection obtained through your website?<span class="arrow">▼</span></div>
+              <div class="answer">Yes, our website employs advanced CNN models that have been trained on large datasets of retinal images, ensuring reliable and accurate detection of diabetic retinopathy. However, it's essential to consult with a qualified eye care professional for further evaluation and diagnosis.</div>
+          </div>
+          <div class="faq-item">
+              <div class="question">14. How can I access diabetic retinopathy detection services on your website?<span class="arrow">▼</span></div>
+              <div class="answer">Users can access our diabetic retinopathy detection services by visiting our website and following the instructions for uploading retinal images. Our user-friendly interface guides you through the process, and you'll receive prompt results and recommendations after the analysis is complete.</div>
+          </div>
+          <div class="faq-item">
+              <div class="question">15. Is there a cost associated with using your diabetic retinopathy detection services?<span class="arrow">▼</span></div>
+              <div class="answer">Our website may offer diabetic retinopathy detection services free of charge or with a nominal fee, depending on our current policies and offerings. Please refer to our website or contact our customer support team for information on pricing and service availability.</div>
+          </div>
+          <div class="faq-item">
+              <div class="question">16. Can I use the results of diabetic retinopathy detection obtained through your website for medical diagnosis or treatment decisions?<span class="arrow">▼</span></div>
+              <div class="answer">While our diabetic retinopathy detection services provide valuable insights, they are intended for informational purposes only and should not replace professional medical advice or diagnosis. It's essential to consult with a qualified healthcare provider for comprehensive evaluation and treatment recommendations.</div>
+          </div>
+        </div>    
+    </section>
+
+    <!-- Bootstrap JS and jQuery -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
